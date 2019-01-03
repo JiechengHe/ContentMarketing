@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.netease.dto.BuyerDao">
+    
+    <select id="getBuyerInfo" parameterType="String" resultType="com.netease.model.Buyer">
+        select username, password from Buyer where username = #{username}
+    </select>
+    
+</mapper>
