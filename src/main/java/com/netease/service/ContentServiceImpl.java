@@ -47,6 +47,10 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     public boolean updateContent(Content content) {
+        int result = contentDao.updateContent(content) ;
+        if(result == 1){
+            return true ;
+        }
         return false;
     }
 

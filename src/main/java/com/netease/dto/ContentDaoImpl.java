@@ -42,4 +42,10 @@ public class ContentDaoImpl extends BaseDao implements ContentDao{
         List<Content> contents = this.getSqlSession().selectList("getAllContent") ;
         return contents;
     }
+
+    @Override
+    public int updateContent(Content content) {
+        int result = this.getSqlSession().update("updateContent", content) ;
+        return result ;
+    }
 }

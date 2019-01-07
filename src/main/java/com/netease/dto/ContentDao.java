@@ -14,6 +14,8 @@ public interface ContentDao {
 
     int deleteContent(int id) ;
 
+    int updateContent(Content content) ;
+
     Content getContent(int id) ;
 
     List<Content> getAllContent() ;
