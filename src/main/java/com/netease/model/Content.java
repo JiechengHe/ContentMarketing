@@ -26,6 +26,16 @@ public class Content {
         this.price = price ;
     }
 
+    public Content(int id, String title, String remark, String artical, String picture, BigDecimal price, int cnt) {
+        this.id = id;
+        this.title = title;
+        this.remark = remark;
+        this.artical = artical;
+        this.picture = picture;
+        this.price = price;
+        this.cnt = cnt;
+    }
+
     public int getId() {
         return id;
     }

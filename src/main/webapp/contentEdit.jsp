@@ -16,6 +16,7 @@
     <script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
     <script type="text/javascript" src="js/edit.js"></script>
     <script type="text/javascript" src="js/head.js"></script>
+    <script type="text/javascript" src="js/ajaxFileUpload.js"></script>
 </head>
 <body>
 
@@ -80,7 +81,7 @@
             </div>
             <div class="fmitem fmitem-nolab fmitem-btn">
                 <div class="fmipt">
-                    <button type="submit" class="u-btn u-btn-primary u-btn-lg">发  布</button>
+                    <button type="submit" class="u-btn u-btn-primary u-btn-lg" id="push">发  布</button>
                 </div>
             </div>
         </form>

@@ -40,6 +40,7 @@
         <div class="cnt">
             <h2 id="title"></h2>
             <p class="summary" id="remark"></p>
+            <p class="summary" id="cnt"></p>
             <div class="price">
                 <span class="v-unit">￥</span>
                 <span class="v-value"></span>
@@ -50,7 +51,7 @@
                 <span class="totalNum" id="allNum">1</span>
                 <span id="addNum" class="moreNum"><a>+</a></span>
             </div>
-            <div class="oprt f-cb"></div>
+            <div class="oprt f-cb" id="optionDiv"></div>
         </div>
     </div>
     <div class="m-tab m-tab-fw m-tab-simple f-cb">

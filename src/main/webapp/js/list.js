@@ -28,6 +28,7 @@ function showList(user){
                 newHtml += '<img src="' + contentData[i].picture + '">' ;
                 newHtml += '</div>' ;
                 newHtml += '<h3>'+ contentData[i].title +'</h3>' ;
+                newHtml += '<h3>已售出'+ contentData[i].cnt +'份</h3>' ;
                 if(contentData[i].cnt != 0 && user != null){
                     newHtml += '<span class="had">' ;
                     if(user == "buyer"){

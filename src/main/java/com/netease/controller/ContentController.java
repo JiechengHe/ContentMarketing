@@ -45,15 +45,16 @@ public class ContentController {
         return "contentDetial" ;
     }
 
+
     @RequestMapping(value = "/ContentEdit",method = RequestMethod.GET)
     public String showInfoEditPage(@RequestParam(value = "id") int id, HttpServletResponse response){
         Cookie cookie = new Cookie("contentId", id+"") ;
         cookie.setPath("/");
-        if(id == -1){
-            cookie.setMaxAge(0);
+        if(id >= 0){
+            cookie.setMaxAge(5);
         }
         else{
-            cookie.setMaxAge(5);
+            cookie.setMaxAge(0);
         }
         response.addCookie(cookie);
         return "contentEdit" ;
