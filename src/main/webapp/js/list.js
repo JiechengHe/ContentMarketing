@@ -64,6 +64,7 @@ function showList(user){
                     newHtml += '<img src="' + contentData[i].picture + '">' ;
                     newHtml += '</div>' ;
                     newHtml += '<h3>'+ contentData[i].title +'</h3>' ;
+                    newHtml += '<h3>已售出'+ contentData[i].cnt +'份</h3>' ;
                     newHtml += '<div class="price">' ;
                     newHtml += '<span class="v-unit">￥</span>' ;
                     newHtml += '<span class="v-value">'+ contentData[i].price +'</span>' ;

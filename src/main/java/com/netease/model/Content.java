@@ -15,6 +15,7 @@ public class Content {
     private String picture ;
     private BigDecimal price ;
     private int cnt ;
+    private BigDecimal buyPrice ;
 
     public Content() {}
 
@@ -90,6 +91,14 @@ public class Content {
 
     public void setCnt(int cnt) {
         this.cnt = cnt;
+    }
+
+    public BigDecimal getBuyPrice() {
+        return buyPrice;
+    }
+
+    public void setBuyPrice(BigDecimal buyPrice) {
+        this.buyPrice = buyPrice;
     }
 
     @Override

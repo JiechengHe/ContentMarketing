@@ -47,6 +47,7 @@ public class LoginController {
             result.put("code", 200) ;
             Cookie cookie = new Cookie("username", status) ;
             cookie.setPath("/");
+            cookie.setMaxAge(60 * 60);
             response.addCookie(cookie);
             session.setAttribute("username",status);
         }

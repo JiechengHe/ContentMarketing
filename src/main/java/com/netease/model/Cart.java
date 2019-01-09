@@ -9,6 +9,7 @@ public class Cart {
     private String userId ;
     private int contentId ;
     private int cnt ;
+    private Content content ;
 
     public Cart() {
     }
@@ -40,5 +41,13 @@ public class Cart {
 
     public void setCnt(int cnt) {
         this.cnt = cnt;
+    }
+
+    public Content getContent() {
+        return content;
+    }
+
+    public void setContent(Content content) {
+        this.content = content;
     }
 }

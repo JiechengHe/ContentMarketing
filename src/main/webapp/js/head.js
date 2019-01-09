@@ -22,7 +22,7 @@ function addHead(user) {
         var newHtml = '<li><a href="/ContentMarketing">首页</a></li>' ;
         if(user == "buyer"){
             newHtml += '<li><a href="account">财务</a></li>' ;
-            newHtml += '<li><a href="cart">购物车</a></li>' ;
+            newHtml += '<li><a href="ShowCart">购物车</a></li>' ;
         }
         else if(user == "seller"){
             newHtml += '<li><a href="ContentEdit?id=-1">发布</a></li>'
