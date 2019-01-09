@@ -69,24 +69,26 @@ function addOption(contentId, username) {
 }
 
 function Cart(contentId) {
-    var num = $("#allNum").text() ;
-    $.ajax({
-        url : "Cart" ,
-        type : "POST" ,
-        data : {contentId:contentId,cnt:num} ,
-        dataType : "json" ,
-        success : function (data) {
-            if(data.code == 200){
-                alert("加入成功!") ;
+    if(confirm("确定购买此内容?")) {
+        var num = $("#allNum").text();
+        $.ajax({
+            url: "Cart",
+            type: "POST",
+            data: {contentId: contentId, cnt: num},
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 200) {
+                    alert("加入成功!");
+                }
+                else {
+                    alert("加入失败!");
+                }
+                location.href = "/ContentMarketing";
+            },
+            error: function (message) {
+                alert("系统出错！");
+                location.href = "/ContentMarketing"
             }
-            else{
-                alert("加入失败!") ;
-            }
-            location.href = "/ContentMarketing" ;
-        },
-        error : function (message) {
-            alert("系统出错！") ;
-            location.href = "/ContentMarketing"
-        }
-    });
+        });
+    }
 }

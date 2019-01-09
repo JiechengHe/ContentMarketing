@@ -1,6 +1,7 @@
 package com.netease.service;
 
 import com.netease.model.Cart;
+import org.json.JSONArray;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface BalanceService {
     List<Cart> getCart(String username) ;
 
     boolean deleteCart(String username, int contentId) ;
+
+    boolean buyCart(JSONArray cartArray, String username) ;
 }

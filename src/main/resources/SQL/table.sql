@@ -30,10 +30,10 @@ create table Cart(
   PRIMARY KEY (userId, contentId)
 ) DEFAULT charset = utf8 ;
 
-create table OrderUser(
-  orderId int auto_increment PRIMARY KEY ,
+create table OrderInfo(
+  orderId int auto_increment PRIMARY key ,
   userId varchar(10) not null ,
-  state int DEFAULT 0
+  orderTime int(10) not null
 ) DEFAULT charset = utf8 ;
 
 create table OrderContent(

@@ -2,13 +2,18 @@ package com.netease.service;
 
 import com.netease.dto.CartDao;
 import com.netease.dto.ContentDao;
+import com.netease.dto.OrderDao;
 import com.netease.model.Cart;
 import com.netease.model.Content;
+import com.netease.model.Order;
+import com.netease.model.OrderContent;
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -23,6 +28,9 @@ public class BalanceServiceImpl implements BalanceService {
 
     @Autowired
     private ContentDao contentDao ;
+
+    @Autowired
+    private OrderDao orderDao ;
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
@@ -59,5 +67,30 @@ public class BalanceServiceImpl implements BalanceService {
             return true ;
         }
         return false;
+    }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    public boolean buyCart(JSONArray cartArray, String username) {
+        Order order = new Order() ;
+        order.setUserId(username);
+        order.setOrderTime((int)System.currentTimeMillis());
+        orderDao.addOrder(order) ;
+        for(int i = 0 ; i < cartArray.length() ; ++ i){
+            int contentId = cartArray.getJSONObject(i).getInt("contentId") ;
+            int cnt = cartArray.getJSONObject(i).getInt("cnt") ;
+            // 获取price
+            Content content = contentDao.getContent(contentId) ;
+            if(content == null){
+                continue ;
+            }
+            int deleteResult = cartDao.deleteCart(username, contentId) ;
+            if(deleteResult == 0){
+                continue ;
+            }
+            OrderContent orderContent = new OrderContent(order.getOrderId(), contentId, content.getPrice(), cnt) ;
+            orderDao.addOrderContent(orderContent) ;
+        }
+        return true;
     }
 }

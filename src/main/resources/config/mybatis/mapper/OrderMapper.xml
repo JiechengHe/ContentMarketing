@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.netease.dto.OrderDao">
+    <insert id="addOrder" parameterType="com.netease.model.Order" useGeneratedKeys="true" keyProperty="orderId" keyColumn="orderId">
+        insert into OrderInfo(userId, orderTime) VALUES (#{userId}, #{orderTime})
+    </insert>
+
+    <insert id="addOrderContent" parameterType="com.netease.model.OrderContent">
+        insert into OrderContent values(#{orderId}, #{contentId}, #{price}, #{cnt})
+    </insert>
+</mapper>

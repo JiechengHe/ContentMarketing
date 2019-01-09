@@ -38,7 +38,8 @@
     <table id="newTable" class="m-table m-table-row n-table g-b3">
     </table>
     <div id="act-btn">
-        <button class="u-btn u-btn-primary" id="Account" onclick="buy()">购  买</button>
+        <button class="u-btn u-btn-primary" id="out" onclick="javascript:history.back(-1);">退  出</button>
+        <button class="u-btn u-btn-primary" id="account" onclick="buy()">购  买</button>
     </div>
 </div>
 
