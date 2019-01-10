@@ -2,6 +2,7 @@ package com.netease.controller;
 
 
 import com.netease.model.Cart;
+import com.netease.model.OrderContent;
 import com.netease.service.BalanceService;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,6 +99,18 @@ public class BalanceController {
             }
         }
         return result ;
+    }
+
+    @RequestMapping(value = "/Account/getAccount", method = RequestMethod.POST)
+    @ResponseBody
+    public List<OrderContent> getAccount(HttpSession session){
+        String username = (String)session.getAttribute("username") ;
+        return balanceService.getAccount(username) ;
+    }
+
+    @RequestMapping(value = "/Account", method = RequestMethod.GET)
+    public String showAccount(){
+        return "account" ;
     }
 
 }

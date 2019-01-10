@@ -74,7 +74,9 @@ public class BalanceServiceImpl implements BalanceService {
     public boolean buyCart(JSONArray cartArray, String username) {
         Order order = new Order() ;
         order.setUserId(username);
-        order.setOrderTime((int)System.currentTimeMillis());
+        String time = System.currentTimeMillis() + "";
+        time = time.substring(0,10) ;
+        order.setOrderTime(Integer.valueOf(time));
         orderDao.addOrder(order) ;
         for(int i = 0 ; i < cartArray.length() ; ++ i){
             int contentId = cartArray.getJSONObject(i).getInt("contentId") ;
@@ -92,5 +94,10 @@ public class BalanceServiceImpl implements BalanceService {
             orderDao.addOrderContent(orderContent) ;
         }
         return true;
+    }
+
+    @Override
+    public List<OrderContent> getAccount(String username) {
+        return orderDao.getAccount(username) ;
     }
 }

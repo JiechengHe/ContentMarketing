@@ -100,6 +100,7 @@ function buy() {
                 else{
                     alert("购买失败!");
                 }
+                location.href = "/ContentMarketing" ;
             },
             error : function (message) {
                 alert("系统错误!") ;

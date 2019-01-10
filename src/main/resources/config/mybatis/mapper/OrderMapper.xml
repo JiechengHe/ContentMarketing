@@ -11,4 +11,24 @@
     <insert id="addOrderContent" parameterType="com.netease.model.OrderContent">
         insert into OrderContent values(#{orderId}, #{contentId}, #{price}, #{cnt})
     </insert>
+
+    <select id="getAccount" resultMap="accountMap">
+        select a.id, a.title, a.picture, b.price, b.cnt, c.orderTime
+        from OrderContent b left join Content a on b.contentId = a.id
+        left join OrderInfo c on b.orderId = c.orderId
+        where c.userId = #{username} ;
+    </select>
+
+    <resultMap id="accountMap" type="com.netease.model.OrderContent">
+        <result column="id" property="contentId"/>
+        <result column="price" property="price"/>
+        <result column="cnt" property="cnt"/>
+        <association property="content" javaType="com.netease.model.Content">
+            <result property="title" column="title"/>
+            <result property="picture" column="picture"/>
+        </association>
+        <association property="order" javaType="com.netease.model.Order">
+            <result property="orderTime" column="orderTime"/>
+        </association>
+    </resultMap>
 </mapper>

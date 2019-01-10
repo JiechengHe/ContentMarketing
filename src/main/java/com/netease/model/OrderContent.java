@@ -13,6 +13,9 @@ public class OrderContent {
     private BigDecimal price ;
     private int cnt ;
 
+    private Content content ;
+    private Order order ;
+
     public OrderContent() {
     }
 
@@ -53,5 +56,21 @@ public class OrderContent {
 
     public void setCnt(int cnt) {
         this.cnt = cnt;
+    }
+
+    public Content getContent() {
+        return content;
+    }
+
+    public void setContent(Content content) {
+        this.content = content;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 }
