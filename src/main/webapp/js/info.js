@@ -23,7 +23,7 @@ $(function () {
 
 function addContentInfo(contentId,username) {
     $.ajax({
-        url : "Content/Info" ,
+        url : "Content/GetInfo" ,
         type : "GET" ,
         data : {id:contentId} ,
         dataType : "json" ,

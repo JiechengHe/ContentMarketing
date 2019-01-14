@@ -21,7 +21,7 @@ public class ContentController {
     @Autowired
     private ContentService contentService ;
 
-    @RequestMapping(value = "/Content/Info",method = RequestMethod.GET)
+    @RequestMapping(value = "/Content/GetInfo",method = RequestMethod.GET)
     @ResponseBody
     public Map<String,Object> getContentInfo(@RequestParam(value = "id") int id){
         Content content = contentService.getContent(id) ;

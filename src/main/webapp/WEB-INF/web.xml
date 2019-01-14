@@ -68,14 +68,88 @@
     <servlet-name>myspring</servlet-name>
   </filter-mapping>
 
+  <!-- Delete请求参数修改 -->
   <filter>
     <filter-name>HiddenHttpMethodFilter</filter-name>
     <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
   </filter>
-
   <filter-mapping>
     <filter-name>HiddenHttpMethodFilter</filter-name>
     <servlet-name>myspring</servlet-name>
+  </filter-mapping>
+
+  <!-- 登录验证过滤器 -->
+  <filter>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>com.netease.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/Cart</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/ShowCart</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/Order</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/Account</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/ContentEdit</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/Content/Info</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginFilter</filter-name>
+    <url-pattern>/Upload</url-pattern>
+  </filter-mapping>
+
+  <!-- 购买者权限校验 -->
+  <filter>
+    <filter-name>BuyerFilter</filter-name>
+    <filter-class>com.netease.filter.BuyerFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>BuyerFilter</filter-name>
+    <url-pattern>/Cart</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>BuyerFilter</filter-name>
+    <url-pattern>/ShowCart</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>BuyerFilter</filter-name>
+    <url-pattern>/Order</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>BuyerFilter</filter-name>
+    <url-pattern>/Account</url-pattern>
+  </filter-mapping>
+
+  <!-- 卖家权限校验 -->
+  <filter>
+    <filter-name>SellerFilter</filter-name>
+    <filter-class>com.netease.filter.SellerFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>SellerFilter</filter-name>
+    <url-pattern>/ContentEdit</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SellerFilter</filter-name>
+    <url-pattern>/Content/Info</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>SellerFilter</filter-name>
+    <url-pattern>/Upload</url-pattern>
   </filter-mapping>
 
   <!-- 防止Spring内存溢出监听器 -->

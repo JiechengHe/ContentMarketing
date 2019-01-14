@@ -33,7 +33,7 @@ create table Cart(
 create table OrderInfo(
   orderId int auto_increment PRIMARY key ,
   userId varchar(10) not null ,
-  orderTime int(10) not null
+  orderTime int not null
 ) DEFAULT charset = utf8 ;
 
 create table OrderContent(
