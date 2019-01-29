@@ -165,7 +165,7 @@ function checkType(fileName, allowType) {
 
 function getContentDetial(contentId){
     $.ajax({
-        url : "Content/Info" ,
+        url : "Content/GetInfo" ,
         type : "GET" ,
         data : {id:contentId} ,
         dataType : "json" ,
@@ -185,7 +185,7 @@ function getContentDetial(contentId){
         },
         error : function (message) {
             alert("系统错误!") ;
-            location.href = "/ContentMarketing" ;
+            // location.href = "/ContentMarketing" ;
         }
     });
 }

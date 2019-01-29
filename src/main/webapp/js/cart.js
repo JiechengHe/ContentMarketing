@@ -21,12 +21,13 @@ $(function () {
                 newHtml += '</tr></tbody>' ;
             }
             $("#newTable").append(newHtml) ;
+            cart = JSON.parse($.cookie("cart")) ;
         },
         error : function (message) {
             alert("系统错误!") ;
         }
     });
-    cart = JSON.parse($.cookie("cart")) ;
+
 });
 
 var cart ;
